@@ -1,0 +1,10 @@
+{
+  "id": "raw-note-schema-fixed",
+  "kind": "clean",
+  "origin": "a past run: the hunter's raw note used date: for fetched: and a prefix-first file name; research_check.py raw caught it; corrected copy",
+  "expect": {
+    "pass": true,
+    "min_score": 7,
+    "must_block": false
+  }
+}

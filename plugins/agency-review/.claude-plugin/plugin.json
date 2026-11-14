@@ -1,0 +1,8 @@
+{
+  "name": "agency-review",
+  "description": "Multi-persona critique of a project, plan or codebase.",
+  "license": "Unlicense",
+  "author": {
+    "name": "The Board"
+  }
+}

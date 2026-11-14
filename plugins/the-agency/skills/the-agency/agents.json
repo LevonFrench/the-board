@@ -1,0 +1,286 @@
+{
+  "about": "Role cards that are also built as Claude Code subagent files. The role card stays the source: edit it, then rebuild with scripts/build_agents.py. Pick a role only when it is useful on its own, outside a coordinated team.",
+  "agents": [
+    {
+      "name": "agency-loop-judge",
+      "role": "roles/general/loop-judge.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "why": "Every judged loop dispatches it; Haiku is the first judge, and a Sonnet confirmer is the same agent with the model overridden"
+    },
+    {
+      "name": "agency-prose-humanizer",
+      "role": "roles/general/prose-humanizer.md",
+      "model": "sonnet",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Edit",
+        "Bash",
+        "Skill"
+      ],
+      "why": "A final prose pass is asked for on its own and is the Research division's prose finish; it edits text, and runs prose_check.py to prove protected spans survived"
+    },
+    {
+      "name": "agency-capability-curator",
+      "role": "roles/general/capability-curator.md",
+      "model": "sonnet",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash"
+      ],
+      "why": "Adoption decisions on a new skill or tool come up outside any team"
+    },
+    {
+      "name": "agency-document-extraction-reviewer",
+      "role": "roles/general/document-extraction-reviewer.md",
+      "model": "sonnet",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash",
+        "Write"
+      ],
+      "why": "Hard scans and tables need it in any project, with judgement on what is unreadable"
+    },
+    {
+      "name": "agency-fieldbook-accuracy-verifier",
+      "role": "roles/fieldbook/accuracy-verifier.md",
+      "model": "sonnet",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "WebFetch"
+      ],
+      "why": "A claim trace of an existing Fieldbook is often asked for without a rebuild; verifiers stay on a larger model"
+    },
+    {
+      "name": "agency-research-scout",
+      "role": "roles/research/scout.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "WebSearch",
+        "mcp__agency_kb__list_wikis",
+        "mcp__agency_kb__read_index",
+        "mcp__agency_kb__read_article",
+        "mcp__agency_kb__search_evidence",
+        "mcp__agency_kb__search"
+      ],
+      "why": "Starts every research job and often closes it from the knowledge base alone"
+    },
+    {
+      "name": "agency-research-web-researcher",
+      "role": "roles/research/web-researcher.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Write",
+        "Bash",
+        "WebSearch",
+        "WebFetch"
+      ],
+      "why": "The default fan-out worker; search and fetch workers run on Haiku"
+    },
+    {
+      "name": "agency-research-primary-artifact-hunter",
+      "role": "roles/research/primary-artifact-hunter.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Write",
+        "Bash",
+        "WebSearch",
+        "WebFetch"
+      ],
+      "why": "Every research round runs it, and agents do not look for manuals unless told"
+    },
+    {
+      "name": "agency-research-history-transcript-researcher",
+      "role": "roles/research/history-transcript-researcher.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Write",
+        "Bash",
+        "WebSearch",
+        "WebFetch"
+      ],
+      "why": "Transcripts and forum history need their own tools and rules"
+    },
+    {
+      "name": "agency-research-recent-signal-researcher",
+      "role": "roles/research/recent-signal-researcher.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Write",
+        "Bash",
+        "WebSearch",
+        "WebFetch"
+      ],
+      "why": "Takes over what last30days did, on free sources only, from any harness"
+    },
+    {
+      "name": "agency-research-source-clerk",
+      "role": "roles/research/source-clerk.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Write",
+        "Bash",
+        "mcp__agency_kb__list_wikis",
+        "mcp__agency_kb__read_index",
+        "mcp__agency_kb__read_article",
+        "mcp__agency_kb__search_evidence",
+        "mcp__agency_kb__search"
+      ],
+      "why": "An independent credibility score keeps researchers from rating their own sources"
+    },
+    {
+      "name": "agency-research-claim-verifier",
+      "role": "roles/research/claim-verifier.md",
+      "model": "sonnet",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Edit",
+        "Bash",
+        "WebFetch"
+      ],
+      "why": "The verification pass must run on a different model from the compiler"
+    },
+    {
+      "name": "agency-media-runtime-comfyui",
+      "role": "roles/media/runtime-comfyui.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash",
+        "Write",
+        "mcp__agency_kb__list_wikis",
+        "mcp__agency_kb__read_index",
+        "mcp__agency_kb__read_article",
+        "mcp__agency_kb__search_evidence",
+        "mcp__agency_kb__search"
+      ],
+      "why": "Engine updates and server, node or workflow faults come up outside a planned job, and every ComfyUI runtime without its own specialist uses it; Haiku writes sheets, and a diagnosis reruns it with the model set to sonnet"
+    },
+    {
+      "name": "agency-media-runtime-minimax-h3",
+      "role": "roles/media/runtime-minimax-h3.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash",
+        "Write",
+        "mcp__agency_kb__list_wikis",
+        "mcp__agency_kb__read_index",
+        "mcp__agency_kb__read_article",
+        "mcp__agency_kb__search_evidence",
+        "mcp__agency_kb__search"
+      ],
+      "why": "H3 readiness, limits and slow-render questions are asked on their own, before any team forms; Haiku writes sheets, and a diagnosis reruns it with the model set to sonnet"
+    },
+    {
+      "name": "agency-media-runtime-krea",
+      "role": "roles/media/runtime-krea.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash",
+        "Write",
+        "mcp__agency_kb__list_wikis",
+        "mcp__agency_kb__read_index",
+        "mcp__agency_kb__read_article",
+        "mcp__agency_kb__search_evidence",
+        "mcp__agency_kb__search"
+      ],
+      "why": "Whether a Krea card or LoRA has actually run here is a common standalone question; Haiku writes sheets, and a diagnosis reruns it with the model set to sonnet"
+    },
+    {
+      "name": "agency-media-runtime-stable-audio",
+      "role": "roles/media/runtime-stable-audio.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash",
+        "Write",
+        "mcp__agency_kb__list_wikis",
+        "mcp__agency_kb__read_index",
+        "mcp__agency_kb__read_article",
+        "mcp__agency_kb__search_evidence",
+        "mcp__agency_kb__search"
+      ],
+      "why": "SA3 checkpoint, length and batch questions come up for loop packs and SFX outside a full team; Haiku writes sheets, and a diagnosis reruns it with the model set to sonnet"
+    },
+    {
+      "name": "agency-mediakit-curator",
+      "role": "roles/general/mediakit-curator.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash"
+      ],
+      "why": "Every Agency run that made visual or audio files closes with it; it looks at each file and copies keepers into the project's .mediakit through mediakit.py, so it needs no Edit or Write"
+    },
+    {
+      "name": "agency-usage-steward",
+      "role": "roles/general/usage-steward.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Write"
+      ],
+      "why": "Drafts the handoff when usage_gate.py returns wrap-up or stop, or sets handoff_now, from the run's usage log, state and record; the coordinator reads the meter and runs the gate itself"
+    },
+    {
+      "name": "agency-web-browser",
+      "role": "roles/general/web-browser.md",
+      "model": "haiku",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash",
+        "Write",
+        "WebFetch"
+      ],
+      "why": "Any team can hand it pages WebFetch cannot read; it climbs the archive, and with the owner's OK for the run uses browse.py over agent-browser for plain or rendered reads and screenshots; it never has the app's browser pane"
+    }
+  ]
+}

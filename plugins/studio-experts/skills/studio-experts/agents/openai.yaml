@@ -1,0 +1,4 @@
+interface:
+  display_name: "Studio Experts"
+  short_description: "Pick and coordinate six engine and DCC expert teams (incl. Godot)"
+  default_prompt: "Use $studio-experts to select the right specialists for this project and complete the requested review or implementation."

@@ -1,0 +1,10 @@
+{
+  "id": "clean-rubric-criteria",
+  "kind": "clean",
+  "origin": "scripts/judge_panel.py: rubric_criteria after the 2026-11-06 fix (names of one to four words)",
+  "expect": {
+    "pass": true,
+    "min_score": 7,
+    "must_block": false
+  }
+}

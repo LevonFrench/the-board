@@ -1,0 +1,10 @@
+{
+  "id": "rubric-criteria-prose-bug",
+  "kind": "bug",
+  "origin": "judge calibration run 2026-11-06: Haiku found that this parser, then in scripts/judge_panel.py, reads prose bullets with a colon as criteria",
+  "expect": {
+    "pass": false,
+    "max_score": 5,
+    "must_block": true
+  }
+}

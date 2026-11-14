@@ -1,0 +1,10 @@
+{
+  "id": "raw-note-schema-bug",
+  "kind": "bug",
+  "origin": "a past run: the hunter's raw note used date: for fetched: and a prefix-first file name; research_check.py raw caught it",
+  "expect": {
+    "pass": false,
+    "max_score": 5,
+    "must_block": true
+  }
+}

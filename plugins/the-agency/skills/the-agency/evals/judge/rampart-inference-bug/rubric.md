@@ -1,0 +1,3 @@
+- supported: every statement of fact in the paragraph is carried by the source note; nothing is stated more strongly than the source says it
+- inference-marked: any inference is labelled as an inference or left out
+- sourced: the paragraph points to its source

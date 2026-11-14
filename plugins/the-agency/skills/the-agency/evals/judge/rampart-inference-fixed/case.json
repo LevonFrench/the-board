@@ -1,0 +1,10 @@
+{
+  "id": "rampart-inference-fixed",
+  "kind": "clean",
+  "origin": "Rampart research round, 2026-11-06: a compiled paragraph stated an inference as fact (the source only gives 2/3/5 for the downgraded final-credit state); corrected wording",
+  "expect": {
+    "pass": true,
+    "min_score": 7,
+    "must_block": false
+  }
+}

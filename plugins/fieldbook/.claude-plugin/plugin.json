@@ -1,0 +1,8 @@
+{
+  "name": "fieldbook",
+  "description": "Build and audit source-backed knowledge bases with a browsable reader.",
+  "license": "Unlicense",
+  "author": {
+    "name": "The Board"
+  }
+}

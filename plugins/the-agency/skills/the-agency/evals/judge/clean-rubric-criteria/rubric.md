@@ -1,0 +1,2 @@
+- correct: returns the set of lower-case names from lines shaped `- name: text` or `* name: text`, with or without backticks around the name, where a name is one to four words; a prose bullet with more words before its colon is not a name
+- documented: the docstring says what the function returns and which line shape it reads

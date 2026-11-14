@@ -1,0 +1,10 @@
+{
+  "id": "rampart-inference-bug",
+  "kind": "bug",
+  "origin": "Rampart research round, 2026-11-06: a compiled paragraph stated an inference as fact (the source only gives 2/3/5 for the downgraded final-credit state)",
+  "expect": {
+    "pass": false,
+    "max_score": 5,
+    "must_block": true
+  }
+}

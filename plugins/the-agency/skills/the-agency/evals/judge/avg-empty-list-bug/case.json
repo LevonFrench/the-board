@@ -1,0 +1,10 @@
+{
+  "id": "avg-empty-list-bug",
+  "kind": "bug",
+  "origin": "a past run: Codex judge scored 5 and blocked the version without the empty-list guard",
+  "expect": {
+    "pass": false,
+    "max_score": 5,
+    "must_block": true
+  }
+}

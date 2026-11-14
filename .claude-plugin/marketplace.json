@@ -1,0 +1,31 @@
+{
+  "name": "the-board",
+  "owner": {
+    "name": "The Board"
+  },
+  "metadata": {
+    "description": "Many agents and skills from other projects, working as one: a coordinator for specialist teams, a multi-persona review panel, game-engine and DCC specialists, and a knowledge-base builder."
+  },
+  "plugins": [
+    {
+      "name": "fieldbook",
+      "source": "./plugins/fieldbook",
+      "description": "Build and audit source-backed knowledge bases with a browsable reader."
+    },
+    {
+      "name": "agency-review",
+      "source": "./plugins/agency-review",
+      "description": "Multi-persona critique of a project, plan or codebase."
+    },
+    {
+      "name": "studio-experts",
+      "source": "./plugins/studio-experts",
+      "description": "Pick and coordinate Unity, Unreal, Blender, Maya, ZBrush and Godot specialists."
+    },
+    {
+      "name": "the-agency",
+      "source": "./plugins/the-agency",
+      "description": "Coordinate a specialist team through planning, implementation and checks."
+    }
+  ]
+}

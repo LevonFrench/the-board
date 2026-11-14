@@ -1,0 +1,2 @@
+# The source lock pins exact bytes, so Git must not convert line endings.
+* -text

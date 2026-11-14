@@ -1,0 +1,4 @@
+interface:
+  display_name: "The Agency"
+  short_description: "Coordinate a specialist team through verified project work"
+  default_prompt: "Use $the-agency to coordinate the right specialists for this project, carry the requested outcome through checks, and keep AGENCY.md current."

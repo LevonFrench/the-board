@@ -1,0 +1,2 @@
+- correct: returns True only for a number from 0 to 10 inclusive, and False for a bool, a string or None
+- documented: the docstring says what the function accepts and rejects

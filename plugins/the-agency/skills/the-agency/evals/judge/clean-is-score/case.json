@@ -1,0 +1,10 @@
+{
+  "id": "clean-is-score",
+  "kind": "clean",
+  "origin": "scripts/judge_panel.py: is_score, a small function in the repo that works as documented",
+  "expect": {
+    "pass": true,
+    "min_score": 7,
+    "must_block": false
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "note": "What each skill drew on. Run scripts/upstream_updates.py; see references/workflows/upstream-sync.md.",
+  "upstreams": [
+    {
+      "id": "scenario-skills",
+      "kind": "vendored",
+      "url": "https://github.com/scenario-labs/skills",
+      "baseline": "7f4b801c7248d51b093ec365aceb114bd06139e6",
+      "baseline_note": "reviewed 2026-11-02",
+      "adapted": [],
+      "vendored": {
+        "skill": "studio-experts",
+        "lock": "references/source-lock.json",
+        "prefix": "vendor/",
+        "scope": [
+          "skills/dcc/blender",
+          "skills/dcc/maya",
+          "skills/dcc/zbrush",
+          "skills/game-engines/unity",
+          "skills/game-engines/unreal"
+        ]
+      }
+    },
+    {
+      "id": "agency-agents",
+      "kind": "runtime",
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "baseline": "b37b5bb33b78f2c1d6567d98e25ca818e3259219",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": []
+    },
+    {
+      "id": "creator-docs",
+      "kind": "runtime",
+      "url": "https://github.com/Roblox/creator-docs",
+      "baseline": "02c23e6297ebf7d86d15e90af438b08be0cbcc29",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": [
+        "references/roblox.md",
+        "references/creator-docs-helper.md"
+      ]
+    },
+    {
+      "id": "ai-marketing-panel",
+      "kind": "adapted",
+      "url": "https://github.com/rodaddy/ai-marketing-panel",
+      "baseline": "784b4b7b3bdedbc88f6983b0afe8579bbd01dd80",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": [
+        "references/workflows/audience-lab.md"
+      ]
+    },
+    {
+      "id": "agent-skills",
+      "kind": "adapted",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "baseline": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": [
+        "references/workflows/delivery-contract.md"
+      ]
+    },
+    {
+      "id": "ECC",
+      "kind": "adapted",
+      "url": "https://github.com/affaan-m/ECC",
+      "baseline": "25278e7d7b6cf6e6a4e7a6c8e10f14ff22f0eb5b",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": []
+    },
+    {
+      "id": "awesome-design-md",
+      "kind": "adapted",
+      "url": "https://github.com/VoltAgent/awesome-design-md",
+      "baseline": "3b605329240ce735b510037cca322f1831fdd7f8",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": [
+        "references/workflows/product-design.md"
+      ]
+    },
+    {
+      "id": "clone-app-pat-pro-public",
+      "kind": "adapted",
+      "url": "https://github.com/per-simmons/clone-app-pat-pro-public",
+      "baseline": "2c03e02d7e1849374739b576b9a0734e6d7e94ab",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": []
+    },
+    {
+      "id": "humanizer",
+      "kind": "adapted",
+      "url": "https://github.com/blader/humanizer",
+      "baseline": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": [
+        "roles/general/prose-humanizer.md"
+      ]
+    },
+    {
+      "id": "gstack",
+      "kind": "adapted",
+      "url": "https://github.com/garrytan/gstack",
+      "baseline": "4b8c03bea9d1c7b51257f6267a4831ee0da8aa20",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": []
+    },
+    {
+      "id": "context-mode",
+      "kind": "adapted",
+      "url": "https://github.com/mksglu/context-mode",
+      "baseline": "397137b0cfc2007f48f837c52958f9ec811db9c5",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": []
+    },
+    {
+      "id": "i-have-adhd",
+      "kind": "adapted",
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "baseline": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": []
+    },
+    {
+      "id": "last30days-skill",
+      "kind": "adapted",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "baseline": "e06af25a9a78487b75e8509e0e1687fec137176e",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": []
+    },
+    {
+      "id": "loop-engineering",
+      "kind": "adapted",
+      "url": "https://github.com/cobusgreyling/loop-engineering",
+      "baseline": "d6d9ead4ce2ebc8b875f0bbc94fac4ff8611026e",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": [
+        "references/improvement-loop.md",
+        "references/loop-prompts.md"
+      ]
+    },
+    {
+      "id": "openai-plugins",
+      "kind": "adapted",
+      "url": "https://github.com/openai/plugins",
+      "baseline": "0722921d5542fc593105c27bd52630babd8b8c2a",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": [
+        "references/workflows/capability-intake.md"
+      ]
+    },
+    {
+      "id": "newsjack",
+      "kind": "adapted",
+      "url": "https://github.com/elvisun/newsjack",
+      "baseline": "47d0fb2f7fa6296aa6baa207c21ffce6defcf78e",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": [
+        "references/workflows/editorial-opportunity.md",
+        "references/workflows/visibility-measurement.md"
+      ]
+    },
+    {
+      "id": "skills",
+      "kind": "adapted",
+      "url": "https://github.com/mattpocock/skills",
+      "baseline": "49dd158",
+      "baseline_note": "wording last taken from this commit; the checkout has moved on",
+      "adapted": [
+        "references/workflows/delivery-contract.md",
+        "references/improvement-loop.md"
+      ]
+    },
+    {
+      "id": "stop-slop",
+      "kind": "adapted",
+      "url": "https://github.com/hardikpandya/stop-slop",
+      "baseline": "8da1f030185bdfe8471220585162991eaeb970e9",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": []
+    },
+    {
+      "id": "skillspector",
+      "kind": "adapted",
+      "url": "https://github.com/nvidia/skillspector",
+      "baseline": "e7172462caf367736645f66c1aa154ca5f9c64dc",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": []
+    },
+    {
+      "id": "taste-skill",
+      "kind": "adapted",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "baseline": "1a6dc0a5ac5d0152120938bf66ed67ea2ec8e552",
+      "baseline_note": "the owner's fork on 2026-11-02; the commit may not exist upstream",
+      "adapted": []
+    },
+    {
+      "id": "ui-ux-pro-max-skill",
+      "kind": "runtime",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "baseline": "28b3b8dee8c976df4fa3e94aed4e092ad43fcb03",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": [
+        "references/design-tool.md"
+      ]
+    },
+    {
+      "id": "Understand-Anything",
+      "kind": "adapted",
+      "url": "https://github.com/Egonex-AI/Understand-Anything",
+      "baseline": "4e6d3299017a7432da15957874992837a315c5b4",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": []
+    },
+    {
+      "id": "Unlimited-OCR",
+      "kind": "adapted",
+      "url": "https://github.com/baidu/Unlimited-OCR",
+      "baseline": "48ff432fb68a18ed91f2f70021f29028b1dde354",
+      "baseline_note": "local checkout on 2026-11-02, not a recorded review",
+      "adapted": [
+        "references/workflows/document-evidence.md"
+      ]
+    },
+    {
+      "id": "cc-thinking-skills",
+      "kind": "runtime",
+      "url": "https://github.com/tjboudreaux/cc-thinking-skills",
+      "baseline": "7b8fece345dfaa11773be7152ccd194589cb5437",
+      "baseline_note": "pinned snapshot",
+      "adapted": [
+        "references/method-lenses.md"
+      ]
+    },
+    {
+      "id": "simcraft",
+      "kind": "runtime",
+      "url": "https://github.com/dotslashsimran/simcraft",
+      "baseline": "58224d131814572224537fb516b8c5d33dd5fa67",
+      "baseline_note": "trialed 2026-11-10; read and run by path from simcraft, never installed",
+      "adapted": [
+        "references/media.md",
+        "references/method-lenses.md"
+      ]
+    },
+    {
+      "id": "flawless-ui-ux",
+      "kind": "runtime",
+      "url": "https://github.com/smokeeaasd/flawless-ui-ux",
+      "baseline": "82d9355d346b0d701240ed046e5ef11c6d39e80e",
+      "baseline_note": "trialed 2026-11-10; CLI run by path from flawless-ui-ux, never installed",
+      "adapted": [
+        "references/workflows/product-design.md",
+        "assets/workflows/product-design.template.md"
+      ]
+    },
+    {
+      "id": "cinematic-skill",
+      "kind": "runtime",
+      "url": "https://github.com/Moh4696/cinematic-skill",
+      "baseline": "bf435561c6203f90f971300efe952b68b5ec3417",
+      "baseline_note": "trialed 2026-11-11; scripts run by path from cinematic-skill through uv, never installed",
+      "adapted": [
+        "references/media.md"
+      ]
+    }
+  ]
+}

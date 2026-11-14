@@ -1,0 +1,25 @@
+# Operating brief, not evidence. Keep it user-editable; log every later change in guidance.md.
+subject: ""
+subject_kind: "market"            # market | household | project-state | entity | archive
+decision: ""
+audience: ""                      # personal research | partners | public readers
+status: "building"                # on-hold | building | published
+source_roots: []
+allowed_traversal: "declared-roots-only"
+exclude: ["dependencies", "build-output", "binaries", "secrets", "private-files", "large-media"]
+desired_topics: []
+must_answer: []
+exclude_topics: []
+mode: "guided-auto"               # preview | guided-auto | manual-approval
+external_research: "gap-only-primary-first"   # none | gap-only | gap-only-primary-first
+output_mode: "both"               # both | markdown-kb | web-fieldbook | single-file | web-app
+# single_file: "subject-dossier.html"   # relative path; only for output_mode: single-file
+release_status: "private"         # private | review | public
+framing: "evidence record"        # record an owner-requested pitch here; labels and limits stay
+last_user_direction: ""
+# Optional:
+# reader: {title: "", topics: [], footer: "", accent: "", newest_source: "YYYY-MM-DD (what)", include_internal: false, wiki_articles: [], wiki_note: "", labels: {}}
+# layout (read by the checker only; build_reader.py expects the standard layout): {ledger: "source-ledger.md", gaps: "gap-register.md", coverage: "coverage-matrix.md", backlog: "refresh-backlog.md", editorial: "editorial-note.md", inventory: "local-evidence-inventory.md", topics: "topics", raw: "raw"}
+# legacy: []                      # superseded paths excluded from checker reader checks
+# superlative_allow: []           # phrases with a stated method
+# personal_data_ok: false         # true when the subject is the owner's own property or record

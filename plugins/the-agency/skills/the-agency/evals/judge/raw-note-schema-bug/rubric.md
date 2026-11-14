@@ -1,0 +1,4 @@
+- file-name: the file name is `YYYY-MM-DD-<angle>-<source>.md`, date first, then the angle, then the source
+- frontmatter: the front matter has title, source, type (one of the plugin's raw folder kinds: articles, data, notes, papers, repos), source_kind, ingested, angle, fetched, fetch-method, credibility, evidence_type and status, spelled exactly so
+- sourced: every finding names the page or table it comes from, and negative findings say which pages were checked
+- limits: the note says what was not read or not verified

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fieldbook"
+  short_description: "Build and check evidence-led Fieldbooks with readers"
+  default_prompt: "Use $fieldbook to inventory my local material first, show me the gaps, research only what is missing, and build a local HTML reader linked to the Markdown evidence base."

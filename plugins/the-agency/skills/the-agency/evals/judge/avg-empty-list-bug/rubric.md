@@ -1,0 +1,2 @@
+- correct: the code does what its docstring and README promise, including the empty-list case
+- documented: the README and docstring say what the function does and agree with each other

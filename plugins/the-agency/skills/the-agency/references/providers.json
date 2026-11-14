@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "excluded_names": [],
+  "providers": [
+    {"id": "agency-local-roles", "kind": "roles", "root": "skill:roles"},
+    {"id": "agency-workflows", "kind": "workflows", "root": "skill:references/workflows"},
+    {"id": "codex-local", "kind": "skills", "root": "~/.codex/skills"},
+    {"id": "shared-local", "kind": "skills", "root": "~/.agents/skills"},
+    {"id": "claude-local", "kind": "skills", "root": "~/.claude/skills"},
+    {"id": "agency-personas", "kind": "personas", "root": "~/agency-agents", "root_env": "AGENCY_AGENTS_DIR"},
+    {"id": "thinking-methods", "kind": "methods", "root": "~/cc-thinking-skills/skills", "root_env": "THINKING_SKILLS_DIR", "revision": "7b8fece345dfaa11773be7152ccd194589cb5437"}
+  ]
+}
