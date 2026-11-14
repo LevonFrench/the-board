@@ -118,27 +118,41 @@ PATH_TO_EOL = re.compile(PATH_START + r"[^\n]*")
 
 # --- YAML ---------------------------------------------------------------
 
+def _split_flow(inner, sep=","):
+    """Split the body of an inline list or map on separators that sit outside quotes and brackets."""
+    items, cur, quote, depth = [], "", "", 0
+    for ch in inner:
+        if quote:
+            quote = "" if ch == quote else quote
+            cur += ch
+        elif ch in "\"'":
+            quote = ch
+            cur += ch
+        elif ch == sep and depth == 0:
+            items.append(cur)
+            cur = ""
+        else:
+            depth += (ch in "[{") - (ch in "]}")
+            cur += ch
+    if cur.strip():
+        items.append(cur)
+    return items
+
+
 def _scalar(s):
     s = s.strip()
     if len(s) >= 2 and s[0] == s[-1] and s[0] in "\"'":
         return s[1:-1].replace('\\"', '"') if s[0] == '"' else s[1:-1].replace("''", "'")
     if s.startswith("[") and s.endswith("]"):
-        items, cur, quote = [], "", ""
-        for ch in s[1:-1]:
-            if quote:
-                quote = "" if ch == quote else quote
-                cur += ch
-            elif ch in "\"'":
-                quote = ch
-                cur += ch
-            elif ch == ",":
-                items.append(cur)
-                cur = ""
-            else:
-                cur += ch
-        if cur.strip():
-            items.append(cur)
-        return [_scalar(x) for x in items]
+        return [_scalar(x) for x in _split_flow(s[1:-1])]
+    if s.startswith("{") and s.endswith("}"):
+        # An inline map, such as labels: {game: "G1"}. Without this the whole map was read as one string.
+        out = {}
+        for item in _split_flow(s[1:-1]):
+            parts = _split_flow(item, ":")
+            if len(parts) >= 2:
+                out[_scalar(parts[0]) if parts[0].strip()[:1] in "\"'" else parts[0].strip()] = _scalar(":".join(parts[1:]))
+        return out
     low = s.lower()
     if low in ("true", "yes"):
         return True

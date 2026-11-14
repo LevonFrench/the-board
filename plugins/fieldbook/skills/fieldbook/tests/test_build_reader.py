@@ -195,6 +195,13 @@ class FrontmatterTests(unittest.TestCase):
         self.assertIs(got["flag"], True)
         self.assertEqual(got["updated"], "2026-10-01")
 
+    def test_fallback_parser_reads_inline_maps(self):
+        """Without PyYAML an inline map was read as one string, so a label override did nothing."""
+        got = br.mini_yaml('reader:\n  labels: {game: "G1", "a: b": [1, 2], plain: x, nested: {k: "v, w"}}\n  empty: {}\n')
+        self.assertEqual(got["reader"]["labels"], {"game": "G1", "a: b": [1, 2], "plain": "x", "nested": {"k": "v, w"}})
+        self.assertEqual(got["reader"]["empty"], {})
+        self.assertEqual(br.mini_yaml("pairs: [[1, 2], [3, 4]]\n")["pairs"], [[1, 2], [3, 4]])
+
     def test_build_works_without_pyyaml(self):
         saved = br.yaml
         br.yaml = None

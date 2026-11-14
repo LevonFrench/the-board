@@ -22,10 +22,13 @@ jobs:
       - name: Fieldbook tests
         run: python -B -m unittest discover -s plugins/fieldbook/skills/fieldbook/tests
       - name: Studio Experts tests, without the upstream files
+        if: ${{ !cancelled() }}
         run: python -B -m unittest discover -s plugins/studio-experts/skills/studio-experts/scripts
       - name: Every script starts
+        if: ${{ !cancelled() }}
         run: python -B .github/scripts/smoke.py
       - name: Studio Experts setup and tests, with the pinned upstream files
+        if: ${{ !cancelled() }}
         run: |
           python -B plugins/studio-experts/skills/studio-experts/scripts/fetch_pinned_upstream.py
           python -B -m unittest discover -s plugins/studio-experts/skills/studio-experts/scripts
