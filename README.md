@@ -71,7 +71,7 @@ Your copy will drift as you adapt it, so updates never overwrite it. Ask `the-ag
 
 ## Status
 
-Developed and tested on Windows. Linux and macOS are untested.
+Developed and tested on Windows. The workflow in `.github/workflows/tests.yml` runs the tests on Linux, macOS and Windows on every push, so check its latest result for your system.
 
 Run the tests yourself from the repo root:
 

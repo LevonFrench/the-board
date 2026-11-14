@@ -1,0 +1,31 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fieldbook tests
+        run: python -B -m unittest discover -s plugins/fieldbook/skills/fieldbook/tests
+      - name: Studio Experts tests, without the upstream files
+        run: python -B -m unittest discover -s plugins/studio-experts/skills/studio-experts/scripts
+      - name: Every script starts
+        run: python -B .github/scripts/smoke.py
+      - name: Studio Experts setup and tests, with the pinned upstream files
+        run: |
+          python -B plugins/studio-experts/skills/studio-experts/scripts/fetch_pinned_upstream.py
+          python -B -m unittest discover -s plugins/studio-experts/skills/studio-experts/scripts
