@@ -86,6 +86,7 @@ The panel score is the lowest score among the judges the depth asks for. `status
 - Check usage at every round boundary against the allowance hard stops the [improvement loop](improvement-loop.md#prepare-one-bounded-work-item) cites, reading usage the way those rules say for the harness. An allowance stop there outranks `next`: at the notice level, report the reading with the round result; at the wrap-up level, finish the current round, write the loop record and ask before another; at the limit, dispatch nothing more and report where the run stands.
 - Calibrate the judges, not only the candidates. After any change to a judge's card, brief, tools or model, run the [judge calibration set](judge-evals.md): it counts missed bugs and false blocks on known cases. Add a case whenever a real defect got past a panel.
 - The judges' opinions are evidence for the owner, not a verdict on taste. Report the scores, the spread between judges and their dissent.
+- A moving subject is judged across its cycle. Give the judges samples from several phases or several runs: one end frame can pass while other phases fail.
 
 ## Introduced and pre-existing findings
 

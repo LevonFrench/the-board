@@ -12,7 +12,7 @@ roles cannot substitute for a requested text-to-video generator; report that cap
 | Unity | 6000.3.21f1, URP 17.3, macOS Apple Silicon; author reports live checks | Existing Unity CLI/tools preferred. Python runner imports fcntl and assumes macOS; not Windows-ready. |
 | Blender | 5.2.1; author reports headless suites | Use actual installed version and supported bpy APIs; sculpt/live GUI operations require separate proof. Current 5.2.3 and 5.3 Beta deltas, MCP limits and the MCP security boundary: [blender-agent-notes.md](blender-agent-notes.md). |
 | Maya | 2027; offline mocked tests only | In-app API paths remain unverified until a bounded live test on the actual version. |
-| Unreal | 5.8, macOS; offline mocked tests only | Engine APIs, MCP and C++ builds are not established by those offline tests. |
+| Unreal | 5.8, macOS; offline mocked tests only | Engine APIs, MCP and C++ builds are not established by those offline tests. For 5.9, read [Unreal practice notes](unreal-practice.md). |
 | ZBrush | 2026.2.1, macOS bridge demonstrated; full suite incomplete | Inspect bridge/platform assumptions; one driver, bounded operations, verify after timeout before retrying. |
 | Godot | Local family (2026-10-28), not upstream; facts measured on 4.7.2 and 4.8-beta1 in the author's research | Read project.godot `config/features` and `godot --version`. Headless CLI first; an editor MCP server only when the user runs one. Never open a second editor on the same project. |
 

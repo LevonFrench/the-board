@@ -43,6 +43,8 @@ Ordered evidence ladder. Each level is distinct; a pass at one never stands in f
 
 **Honest results.** A check passes only if it ran more than zero cases and exited 0; a runner reporting zero cases is a failed lane, and a failed capture is an error, never clean or skipped. A red is pre-existing only if the unchanged baseline reproduces it; if that is ambiguous, it belongs to this change. A receipt names the command, the revision or hash of what it consumed, and the count; changed content makes it stale. A reported measurement states what was measured and its run-to-run variation: one run on each side makes no claim about the delta, and a gap smaller than the variation is no measurable change. A merge, a 200 or a reachable URL proves reachability, not that this revision is live.
 
+**Adoption.** A worker's return is not adoption. The parent accepts a change only from the assembled result: the acceptance line names what was read back from the integrated project (a file date in its content, a shot or a log line from the assembled build), not the worker's own stills or side project. Tell the owner a thing is done after reading it back, never before.
+
 Separate observations, inferences, hypotheses and proposals. Consensus is not proof. A timeout, tool failure or absent test is not a pass. Before accepting a consequential finding, end with an executable or source check (the skeptical check; see [method-lenses.md](method-lenses.md) for scientific-method and pre-mortem).
 
 A return that changes files or a wiki states three things: how it was tested (the command and its result, or the check not run and why), the risk (what could break and who it affects), and how to undo it (the commit or rollback command, with full paths).
@@ -97,10 +99,16 @@ A finding that would change the owner's stated scope or direction is the owner's
 
 ## Implementation
 
-Assign nonoverlapping writable files and integrate dependencies in sequence; writes stay single-threaded per file set. One owner controls each live editor/session. Overnight, unattended or parallel workers on Blender and other engine/DCC apps use headless/batch runs, one app process per worker, never a shared live editor session; live editor/MCP sessions are for watched work with one driver. Blender specifics: studio-experts `references/blender-agent-notes.md` section 5 (`<studio-experts skill>/references/blender-agent-notes.md`). Inspect unexpected edits and preserve user/other-agent changes; never blindly revert them.
+Assign nonoverlapping writable files and integrate dependencies in sequence; writes stay single-threaded per file set. One owner controls each live editor/session. Overnight, unattended or parallel workers on Blender and other engine/DCC apps use headless/batch runs, one app process per worker, never a shared live editor session; live editor/MCP sessions are for watched work with one driver. Blender specifics: studio-experts `references/blender-agent-notes.md` section 5 (`<studio-experts skill>/references/blender-agent-notes.md`). Inspect unexpected edits and preserve user/other-agent changes; never blindly revert them. The parent never discards another lane's working files or stops another lane's turn: it asks that lane or the owner. An action the harness denies goes to the owner, never to another session to do instead.
+
+**Workers that cannot build.** When one lane owns the compile, the saves and the package, every other worker returns a drop-in: its new files plus an [integration note](../assets/workflows/integration-note.template.md) that lists each file, the call sites by file and function, switches that default to today's behaviour, the log lines to expect and what to check after the build. The owning lane integrates, and adoption is checked as above.
+
+**Chained shells on Windows.** `bash` called from PowerShell may be WSL, not Git Bash. A shell heredoc can turn `\t` or `\n` inside a string into a tab or a line break, and runs backticks as commands. `powershell -File x.ps1 -List a,b,c` passes one element. Windows PowerShell 5.1 writes UTF-8 with a byte-order mark. Check each step's exit code and the date of the file it wrote before the next step uses it.
 
 ## Synthesis
 
 Verify consequential findings against source; resolve disagreement with the cheapest discriminating check or preserve the uncertainty. Prioritize by impact, evidence, dependencies and cost, not votes. Workers send milestone/blocker updates to the parent; the parent owns the user-facing account ([reporting rule](../SKILL.md#make-work-visible)). Review/repair cycles follow [improvement-loop.md](improvement-loop.md); messaging an independent chat needs the human's authorization and an exact destination.
+
+**Relays.** An instruction sent to a busy lane is delivered only when that lane acknowledges it. A relay that changes scope carries the owner's words and the time. Confirm a removal, or any change that is hard to undo, with the owner before relaying it. A lane that builds in a loop reads its messages between builds.
 
 A substantial SUMMARY.md holds outcome, scope/revision, team and reasons, verified priorities with citations, disagreements, ordered actions, actual validation receipts by ladder level and owner decisions.

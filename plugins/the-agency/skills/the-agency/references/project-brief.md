@@ -23,6 +23,7 @@ Aim for roughly 60–120 lines when warranted; smaller projects need less. Omit 
 - Next priorities/open decisions: short, ordered, linked to the maintained backlog.
 - Active delegated work, when relevant: owning session/lead, immediate item and link to the current loop/handoff record. Keep attempt history and per-worker details in that record, not this brief; the link does not authorize messaging another chat.
 - Freshness: actual verification date and scope, revision if relevant and unverified facts.
+- Owner log, optional, for a long run with several sessions: one append-only file beside the brief that holds the owner's statements, their words and the time first, with any reading of them marked as a reading. Relays cite it, and it settles what was asked when sessions disagree.
 
 Link canonical KB articles and decision records by full absolute path; never invent KB master articles or copy private content. Check a known project wiki index or registered hub/project index; if absent, say so. If you keep a wiki, link its articles instead of copying them. A brief does not require creating a wiki or modifying its registry.
 

@@ -37,6 +37,8 @@ The state file holds the start reading and start credit balance, which is how "t
 | `ask-owner` | 1 | There is no usable reading (usage tool unavailable or not applicable). Asks the owner for the weekly percent before starting new work. Never guesses. |
 | exit 2 | 2 | Bad usage or an unreadable reading. Fix the call or ask the owner for the reading, then run again. |
 
+**An owner override.** When the owner lifts the stops for a run, record their words and the time in the run log. The override covers that run only and ends with it. Keep taking the reading at every checkpoint and record it as overridden by the owner: the gate does not go silent.
+
 An agent never edits a usage guard or its state, and never suggests a way round one.
 
 ## The run record line

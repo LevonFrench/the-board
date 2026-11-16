@@ -91,6 +91,8 @@ override these defaults with a stated reason.
 Read [compatibility and safety](references/compatibility.md). It overrides conflicting upstream recipes.
 For any Blender role, also read [Blender agent notes](references/blender-agent-notes.md): MCP channel limits,
 the MCP security boundary and Blender changes after this pack was pinned (5.2.3, 5.3). It wins over vendored Blender files.
+For any Unreal role, also read [Unreal practice notes](references/unreal-practice.md): accepting work only from the assembled build,
+the engine-wide build lock, failures only a packaged build shows, capture and measuring traps, and Niagara failures that log nothing. It wins over vendored Unreal files.
 Prefer existing installed application skills and available tools for execution (including the user's
 Unity CLI skills), with this pack supplying specialist reasoning. Inspect the actual helper and its
 transitive calls before running it; importing a vendor module may itself have side effects.

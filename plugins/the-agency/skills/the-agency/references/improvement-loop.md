@@ -59,6 +59,10 @@ Before retrying a timed-out write, inspect whether it already changed files or e
 
 For work that will span turns or sessions, keep a compact loop record in the existing handoff/backlog: item IDs and status, owner and destination, baseline/current revision, accepted/unresolved findings, attempts/budget, evidence/artifact paths and next step. Item states use the single [status vocabulary](work-contract.md#status). Link that record from AGENCY.md; keep detailed iteration history out of the project brief. Explicit read-only tasks keep even this proposed record in the response unless artifact writes were authorized.
 
+**Deadlines.** Name a feature stop time when the run starts. After it, work one candidate and one fix at a time, each with the short check. If the owner waives tests, record the waiver and what was not checked in the release note.
+
+**Shared handoff files.** A handoff that many sessions append to keeps a short current-state block at the top that only the parent rewrites, gives every entry one heading shape (time, who, to whom, subject), and is rotated by day or by size before sessions can no longer read it whole.
+
 **Checkable handoffs.** A record that crosses sessions stores the commit it describes, the next session's purpose in the owner's words and a start-with list of roles, workflows or skills. Each next step carries its basis: ran (with the outcome), read or assumed. On resume, compare the stored commit with HEAD. If HEAD moved or the commit is not in this checkout, every step goes under "Verify first" and is checked read-only before anything runs; an unmarked step that names a command, path or write goes there too. If the newest handoff is for another branch or checkout, show it and ask. Point to specs, commits and diffs rather than copying them, and redact keys, passwords and personal data.
 
 On an owner pause/cancel request, stop dispatching and halt or notify active native workers where supported, preserving completed work and identifying any work still running. Record paused/cancelled per the status vocabulary. A saved record supports a later authorized resume; it does not itself trigger one.
