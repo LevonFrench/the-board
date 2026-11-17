@@ -624,6 +624,43 @@ class RepairRoundTests(Tmp):
         self.assertIn(br.CSS_MARK, self.page("site/styles.css"))
         self.assertEqual(run(self.root)[0], 0)
 
+    def test_image_reached_through_a_link_is_not_embedded(self):
+        """A link or junction inside the Fieldbook must not pull an outside file into the reader."""
+        import base64
+        make_fieldbook(self.root)
+        outside = Path(self._t.name) / "outside-files"
+        outside.mkdir()
+        (outside / "x.png").write_bytes(b"CANARY-OUTSIDE-FILE")
+        link = self.root / "img"
+        try:
+            link.symlink_to(outside, target_is_directory=True)
+        except (OSError, NotImplementedError):
+            import subprocess
+            res = subprocess.run(["cmd", "/c", "mklink", "/J", str(link), str(outside)], capture_output=True)
+            if res.returncode != 0:
+                self.skipTest("cannot create a symlink or junction here")
+        readme = self.root / "README.md"
+        readme.write_text(readme.read_text(encoding="utf-8") + "\n![a](img/x.png)\n", encoding="utf-8")
+        code, out = run(self.root, "--single-file", "reader.html")
+        built = self.root / "reader.html"
+        page = built.read_text(encoding="utf-8") if built.is_file() else ""
+        self.assertNotIn(base64.b64encode(b"CANARY-OUTSIDE-FILE").decode("ascii"), page)
+        self.assertIn("resolves outside the Fieldbook", out)
+
+    def test_page_reached_through_a_link_is_not_rendered(self):
+        make_fieldbook(self.root)
+        outside = Path(self._t.name) / "outside-note.md"
+        outside.write_text("# Outside\n\nCANARY-OUTSIDE-NOTE\n", encoding="utf-8")
+        link = self.root / "topics" / "linked.md"
+        try:
+            link.symlink_to(outside)
+        except (OSError, NotImplementedError):
+            self.skipTest("cannot create a file symlink here")
+        code, out = run(self.root, "--force")
+        pages = "".join(p.read_text(encoding="utf-8") for p in (self.root / "site").glob("*.html")) if (self.root / "site").is_dir() else ""
+        self.assertNotIn("CANARY-OUTSIDE-NOTE", pages)
+        self.assertIn("resolves outside the Fieldbook", out)
+
     def test_output_dir_junction_outside_root_refused(self):
         make_fieldbook(self.root)
         outside = Path(self._t.name) / "outside"

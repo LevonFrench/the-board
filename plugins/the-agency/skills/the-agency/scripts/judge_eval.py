@@ -65,7 +65,14 @@ def find_case(root, case_id):
 
 
 def candidate_files(case):
-    return sorted(p for p in (case["dir"] / "candidate").rglob("*") if p.is_file())
+    """The case's own candidate files. A link or junction that leads outside the case folder is refused:
+    staging would otherwise copy an outside file into the folder a judge reads."""
+    folder = (case["dir"] / "candidate").resolve()
+    files = sorted(p for p in (case["dir"] / "candidate").rglob("*") if p.is_file())
+    for path in files:
+        if path.is_symlink() or not path.resolve().is_relative_to(folder):
+            raise EvalError(f"{case['id']}: candidate file is a link or resolves outside the case folder: {path.name}")
+    return files
 
 
 def make_brief(case, stage=None):

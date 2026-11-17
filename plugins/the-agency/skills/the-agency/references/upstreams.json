@@ -265,6 +265,16 @@
       "adapted": [
         "references/media.md"
       ]
+    },
+    {
+      "id": "security-audit-skill",
+      "kind": "runtime",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "baseline": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+      "baseline_note": "trialed 2026-11-17; read by path from security-audit-skill, never installed",
+      "adapted": [
+        "references/routing.md"
+      ]
     }
   ]
 }

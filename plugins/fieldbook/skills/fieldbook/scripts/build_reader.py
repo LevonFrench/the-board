@@ -1205,7 +1205,11 @@ class Reader:
             self.notes.append("left out as internal (reader.include_internal: true adds them): "
                               + ", ".join(self.left_out))
         for page in self.pages:
-            if page.src:
+            if page.src and page.kind != "wiki" and not (root / page.src).resolve().is_relative_to(root):
+                # A link or junction inside the folder must not pull an outside file into the reader.
+                # Wiki articles are checked against the declared source roots in check_wiki_article.
+                self.drop(page, page.src, "source file resolves outside the Fieldbook", fail=True)
+            elif page.src:
                 page.meta, page.md = split_frontmatter(read_text(root / page.src))
                 if page.kind == "wiki":
                     page.md = clean_wiki_md(page.md)
@@ -1305,6 +1309,9 @@ class Reader:
         file = self.root / target
         if not file.is_file():
             self.drop(page, raw, "missing target")
+            return None
+        if not file.resolve().is_relative_to(self.root):
+            self.drop(page, raw, "target resolves outside the Fieldbook")
             return None
         if is_image and self.single:
             return self.embed_image(page, raw, target, file, ext)

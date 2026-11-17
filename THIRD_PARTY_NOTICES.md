@@ -17,6 +17,7 @@ What this project draws on. Nothing listed as not included, not shipped or named
 | flawless-ui-ux (not shipped; named, and run by path when you have it) | the-agency/references/workflows/product-design.md | https://github.com/smokeeaasd/flawless-ui-ux | 82d9355d346b0d701240ed046e5ef11c6d39e80e | MIT, Copyright (c) 2026 smokeeaasd |
 | cinematic-skill (not shipped; named, and run by path when you have it) | the-agency/references/media.md | https://github.com/Moh4696/cinematic-skill | bf435561c6203f90f971300efe952b68b5ec3417 | MIT, Copyright (c) 2026 exploraX |
 | agent-browser (not shipped; the browsing script calls it when installed) | the-agency/scripts/browse.py | https://github.com/vercel-labs/agent-browser | 0.41.1 (installed package) | Apache-2.0 |
+| security-audit-skill (not shipped; named, and read by path when you have it) | the-agency/references/routing.md | https://github.com/cloudflare/security-audit-skill | c1c8a8c1471069fb0e188eeaff69b8e8db6564a8 | MIT, Copyright (c) 2025-2026 Cloudflare, Inc. |
 | skillspector (optional) | named only | https://github.com/nvidia/skillspector | e7172462 | Apache-2.0 |
 | context-mode (optional) | named only | https://github.com/mksglu/context-mode | 397137b | Elastic License 2.0 |
 | openai/plugins; clone-app-pat-pro-public (referenced) | named only | https://github.com/openai/plugins; https://github.com/per-simmons/clone-app-pat-pro-public | 0722921; 2c03e02 | No root LICENSE file |
