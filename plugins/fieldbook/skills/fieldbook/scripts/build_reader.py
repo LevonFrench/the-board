@@ -120,10 +120,17 @@ PATH_TO_EOL = re.compile(PATH_START + r"[^\n]*")
 
 def _split_flow(inner, sep=","):
     """Split the body of an inline list or map on separators that sit outside quotes and brackets."""
-    items, cur, quote, depth = [], "", "", 0
+    items, cur, quote, depth, escaped = [], "", "", 0, False
     for ch in inner:
-        if quote:
-            quote = "" if ch == quote else quote
+        if escaped:
+            escaped = False
+            cur += ch
+        elif quote:
+            # A backslash inside double quotes escapes the next character, so \" does not close the value.
+            if ch == "\\" and quote == '"':
+                escaped = True
+            elif ch == quote:
+                quote = ""
             cur += ch
         elif ch in "\"'":
             quote = ch

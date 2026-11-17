@@ -250,8 +250,10 @@ def main(argv=None):
         if args.claude is not None:
             reading = read_json(args.claude)
             weekly, balance, note = claude_reading(reading)
-            # With no all-models window the highest weekly window is already the weekly reading.
-            if weekly is not None and not note.startswith("no all-models window"):
+            # With no all-models window the highest weekly window is already the weekly reading, so the automatic
+            # lookup would only repeat it. A window the caller named is still looked up: its own reading and its
+            # handoff signal must not vanish because the total is missing.
+            if weekly is not None and (args.model is not None or not note.startswith("no all-models window")):
                 model_window, model_note = claude_model_window(reading, args.model)
         elif args.codex is not None:
             weekly, balance, note = codex_reading(read_json(args.codex))

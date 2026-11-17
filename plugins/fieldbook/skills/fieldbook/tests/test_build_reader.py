@@ -202,6 +202,15 @@ class FrontmatterTests(unittest.TestCase):
         self.assertEqual(got["reader"]["empty"], {})
         self.assertEqual(br.mini_yaml("pairs: [[1, 2], [3, 4]]\n")["pairs"], [[1, 2], [3, 4]])
 
+    def test_fallback_parser_keeps_escaped_quotes_inside_a_quoted_value(self):
+        """An escaped quote used to close the value, and the next comma then split it into separate entries."""
+        text = 'labels: {a: "hello, \\"world, again\\"", b: ok}\nitems: ["x, \\"y\\"", z]\n'
+        got = br.mini_yaml(text)
+        self.assertEqual(got["labels"], {"a": 'hello, "world, again"', "b": "ok"})
+        self.assertEqual(got["items"], ['x, "y"', "z"])
+        if br.yaml is not None:
+            self.assertEqual(br.yaml.safe_load(text), got)
+
     def test_build_works_without_pyyaml(self):
         saved = br.yaml
         br.yaml = None
